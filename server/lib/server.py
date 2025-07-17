@@ -4,9 +4,7 @@ import urequests
 import json
 import time
 
-class Server:
-    server_socket = None
-    
+class Server:    
     def __init__(self):
         with open('lib/config.json') as f:
             config = json.load(f)

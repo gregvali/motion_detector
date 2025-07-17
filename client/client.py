@@ -1,4 +1,6 @@
 import socket
+from constants import SERVER_ADDRESS
+import logger
 
 class Client:
     # client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -6,7 +8,8 @@ class Client:
 
     def __init__(self):
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.server_address = ("192.168.1.51", 12345)
+        self.logger = logger.Logger()
+        self.server_address = SERVER_ADDRESS
 
     def send_request(self, request):
         print(f"Sending Request \"{request}\" to Server: {self.server_address}")
@@ -14,6 +17,12 @@ class Client:
 
         print("Recieving Data ...")
         data, addr = self.client_socket.recvfrom(1024)
+        data = data.decode()
 
-        print("Recieved Data:", data.decode())
-        return data.decode()
+        print(f"Recieved Data: {data}")
+        if self.logger.get_current_data() != data:
+            print(f"Logging data to {self.logger.get_filename()}")
+            self.logger.log(data)
+            self.logger.set_current_data(data)
+
+        return data
