@@ -22,7 +22,7 @@ def create_pir_handler(rtc, led):
                 time.sleep_ms(3)
     return pir_handler
 
-def main():
+if __name__ == "__main__":
     sensor = machine.Pin(16, machine.Pin.IN)	# Sensor on pin 16
     led = machine.Pin(15, machine.Pin.OUT)		# LED on pin 15
 
@@ -39,5 +39,3 @@ def main():
             server_obj.send_data(buffer, request[1])
             print(f"Sent: {buffer}\n")
         time.sleep(1)
-
-main()

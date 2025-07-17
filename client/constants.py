@@ -1,0 +1,5 @@
+
+DELAY_INTERVAL = 1
+REQUESTS = [
+  "SEND DATA"
+]

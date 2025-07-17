@@ -5,3 +5,4 @@ TIME LOG:
 07/14: 4 hours
 07/15: 4 hours
 07/16: 5 hours
+07/17: 1:18 pm
