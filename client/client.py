@@ -24,5 +24,4 @@ class Client:
             print(f"Logging data to {self.logger.get_filename()}")
             self.logger.log(data)
             self.logger.set_current_data(data)
-
         return data
