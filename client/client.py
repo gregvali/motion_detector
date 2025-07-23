@@ -20,7 +20,7 @@ class Client:
         data = data.decode()
 
         print(f"Recieved Data: {data}")
-        if self.logger.get_current_data() != data:
+        if self.logger.get_current_data() != data or data == "empty buffer":
             print(f"Logging data to {self.logger.get_filename()}")
             self.logger.log(data)
             self.logger.set_current_data(data)
