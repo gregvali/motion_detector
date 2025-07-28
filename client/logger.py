@@ -22,4 +22,4 @@ class Logger:
         return self.current_data
     
     def set_current_data(self, data):
-        self. current_data = data
+        self.current_data = data
